@@ -11,9 +11,9 @@
 </head>
 
 <body>
-  <!--<div class="page">-->
+  
     <header>
-      <h2>Coding Conf</h2>  
+      <img src="/assets/images/logo-full.svg" alt="Logo da Coding Conf" class="logo">
     </header>
 
     <div class="container">
@@ -21,23 +21,27 @@
       <p class="subtitle">Secure your spot at next year’s biggest coding conference.</p>
   
       <form id="ticketForm">
-          <h2>Upload Avatar</h2>
+          <h3>Upload Avatar</h3>
           <label for="avatar" class="upload-box">
             <input type="file" id="avatar" hidden>
-            <span>📂 Drag and drop or click to upload</span>
-            <p class="upload-note">Upload your photo (JPG or PNG, max size: 500KB).</p>
+            <img src="/assets/images/icon-upload.svg">
+            <p>Drag and drop or click to upload</p>
           </label>
+           
+          <p class="upload-note"> 
+            <img src="/assets/images/icon-info.svg" class="icon-info"> Upload your photo (JPG or PNG, max size: 500KB).
+          </p>
   
-          <h2>Full Name</h2>
+          <h4>Full Name</h4>
           <input type="text" id="name" required>
-          <h2>Email Address</h2>
+          <h4>Email Address</h4>
           <input type="email" id="email" placeholder="example@email.com" required>
-          <h2>GitHub Username</h2>
-          <input type="text" id="github" placeholder="@yourusername" require d>
+          <h4>GitHub Username</h4>
+          <input type="text" id="github" placeholder="@yourusername" required>
   
           <button type="submit">Generate My Ticket</button>
       </form>
     </div>
-  <!--</div>-->
+    
 </body>
 </html>
