@@ -6,6 +6,7 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
   <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
   <title>Frontend Mentor | Conference ticket generator</title>
 </head>
@@ -20,28 +21,53 @@
       <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
       <p class="subtitle">Secure your spot at next year’s biggest coding conference.</p>
   
-      <form id="ticketForm">
+      <form id="ticketForm" novalidate>
           <h3>Upload Avatar</h3>
+
           <label for="avatar" class="upload-box">
+            <div class="upload-prompt">
+              <img src="/assets/images/icon-upload.svg">
+              <p>Drag and drop or click to upload</p>
+            </div>
+            <div class="upload-preview hidden">
+              <img id="avatarPreview" src="#" alt="Pré-visualização do Avatar">
+              <div class="preview-buttons">
+                <button type="button" id="removeImageBtn">Remove image</button>
+                <button type="button" id="changeImageBtn">Change image</button>
+              </div>
+            </div>
             <input type="file" id="avatar" hidden>
-            <img src="/assets/images/icon-upload.svg">
-            <p>Drag and drop or click to upload</p>
           </label>
-           
+          
           <p class="upload-note"> 
             <img src="/assets/images/icon-info.svg" class="icon-info"> Upload your photo (JPG or PNG, max size: 500KB).
           </p>
-  
-          <h4>Full Name</h4>
-          <input type="text" id="name" required>
-          <h4>Email Address</h4>
-          <input type="email" id="email" placeholder="example@email.com" required>
-          <h4>GitHub Username</h4>
-          <input type="text" id="github" placeholder="@yourusername" required>
-  
-          <button type="submit">Generate My Ticket</button>
+          <p class="error-message" id="avatarError"></p>
+          <br>
+          <br>
+
+          <div class="digit-infos">
+            <h4>Full Name</h4>
+            <input type="text" id="name" required>
+            <p class="error-message" id="nameError"></p>
+            <br>  
+
+            <h4>Email Address</h4>
+            <input type="email" id="email" placeholder="example@email.com" required>
+            <p class="error-message" id="emailError"></p>
+            <br>
+
+            <h4>GitHub Username</h4>
+            <input type="text" id="github" placeholder="@yourusername" required>
+            <p class="error-message" id="githubError"></p>
+            <br>
+            
+            <button type="submit">Generate My Ticket</button>
+          </div>
       </form>
     </div>
     
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="/js/register.js"></script>
 </body>
 </html>
