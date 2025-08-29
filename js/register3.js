@@ -1,6 +1,5 @@
 // Arquivo: register-error-alert.js
 document.addEventListener('DOMContentLoaded', () => {
-    // ... (todo o código de setup e funções showPreview/clearPreview é o mesmo) ...
     const form = document.getElementById("ticketForm");
     const avatarInput = document.getElementById("avatar");
     const uploadPrompt = document.querySelector(".upload-prompt");
@@ -31,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const file = avatarInput.files[0];
             const maxSize = 500 * 1024;
             if (file.size > maxSize) {
-                alert("Invalid size of file (max: 500KB)."); // <-----
+                alert("Invalid size of file (max: 500KB)."); // <----- alert
                 clearPreview();
                 return;
             }
@@ -51,10 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isValid) return;
             
             if (!input.value.trim()) {
-                alert(`Field "${id}" is required.`); // <------
+                alert(`Field "${id}" is required.`); // <------ alert
                 isValid = false;
             } else if (id === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
-                alert('Invalid email.'); // <-----
+                alert('Invalid email.'); // <----- alert
                 isValid = false;
             }
         });
@@ -63,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Valida Avatar
         if (!avatarDataUrl) {
-            alert("Avatar is a required field."); // <------
+            alert("Avatar is a required field."); // <------ alert
             isValid = false;
         }
 

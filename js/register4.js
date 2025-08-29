@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Valida Avatar
         if (!avatarDataUrl) {
-            // <-- MUDANÇA AQUI
+            // <-----
             Toastify({ text: "Avatar is a required field.", backgroundColor: "linear-gradient(to right, #ff5e62, #e52e71)" }).showToast();
             isValid = false;
         }

@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (isValid) {
-            // MUDANÇA 2: Adiciona o "@" antes de salvar
+            // <----- Adiciona o "@" antes de salvar
             const githubValue = document.getElementById('github').value.trim();
 
             sessionStorage.setItem('ticketName', document.getElementById('name').value);

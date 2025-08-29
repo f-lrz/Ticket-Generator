@@ -187,7 +187,7 @@ input {
 
 input::placeholder {
   color: #ccc;
-  border-radius: 12px; /* mais arredondado */
+  border-radius: 12px;
   font-size: 0.9rem;
   font-family: "Inconsolata", monospace;
 }
@@ -323,7 +323,7 @@ button[type="submit"]:hover {
 .user-github {
     display: flex;
     align-items: center;
-    gap: 8px; /* Espaço entre o ícone e o nome de usuário */
+    gap: 8px;
     margin-top: 5px;
     color: #ffffff6b;
 }

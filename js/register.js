@@ -84,5 +84,5 @@ document.addEventListener('DOMContentLoaded', () => {
             sessionStorage.setItem('ticketAvatar', avatarDataUrl);
             window.location.href = '/ticket_page/index.html';
         }
-    });
+    }); 
 });
