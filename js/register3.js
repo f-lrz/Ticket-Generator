@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const file = avatarInput.files[0];
             const maxSize = 500 * 1024;
             if (file.size > maxSize) {
-                alert("Invalid size of file (max: 500KB)."); // <-- MUDANÇA AQUI
+                alert("Invalid size of file (max: 500KB)."); // <-----
                 clearPreview();
                 return;
             }
@@ -48,13 +48,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // Valida campos de texto
         ['name', 'email', 'github'].forEach(id => {
             const input = document.getElementById(id);
-            if (!isValid) return; // Se um erro já foi mostrado, para de checar
+            if (!isValid) return;
             
             if (!input.value.trim()) {
-                alert(`Field "${id}" is required.`); // <-- MUDANÇA AQUI
+                alert(`Field "${id}" is required.`); // <------
                 isValid = false;
             } else if (id === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
-                alert('Invalid email.'); // <-- MUDANÇA AQUI
+                alert('Invalid email.'); // <-----
                 isValid = false;
             }
         });
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Valida Avatar
         if (!avatarDataUrl) {
-            alert("Avatar is a required field."); // <-- MUDANÇA AQUI
+            alert("Avatar is a required field."); // <------
             isValid = false;
         }
 

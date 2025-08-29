@@ -1,6 +1,5 @@
-// Arquivo: register-github-smart-at.js
+// Arquivo: register-github-require-at.js
 document.addEventListener('DOMContentLoaded', () => {
-    // ... (todo o código de setup e funções showPreview/clearPreview é o mesmo) ...
     const form = document.getElementById("ticketForm");
     const avatarInput = document.getElementById("avatar");
     const uploadPrompt = document.querySelector(".upload-prompt");
@@ -8,17 +7,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const avatarPreviewImg = document.getElementById("avatarPreview");
     const removeImageBtn = document.getElementById("removeImageBtn");
     const changeImageBtn = document.getElementById("changeImageBtn");
+
     let avatarDataUrl = null;
+
     function showPreview(file) {
         const reader = new FileReader();
         reader.onload = (e) => {
             avatarDataUrl = e.target.result;
             avatarPreviewImg.src = avatarDataUrl;
             uploadPrompt.classList.add("hidden");
-            uploadPreview.classList.remove("hidden");
+            uploadPreview.classList.remove("hidden"); 
         };
         reader.readAsDataURL(file);
     }
+
     function clearPreview() {
         avatarInput.value = "";
         avatarDataUrl = null;
@@ -26,13 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
         uploadPrompt.classList.remove("hidden");
         uploadPreview.classList.add("hidden");
     }
+
     avatarInput.addEventListener("change", () => {
         const avatarError = document.getElementById("avatarError");
         avatarError.textContent = "";
         avatarInput.parentElement.classList.remove("invalid-field");
+
         if (avatarInput.files.length > 0) {
             const file = avatarInput.files[0];
-            const maxSize = 500 * 1024;
+            const maxSize = 500 * 1024; // 500KB
             if (file.size > maxSize) {
                 avatarError.textContent = "Invalid size of file (max: 500KB).";
                 clearPreview();
@@ -41,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showPreview(file);
         }
     });
+
     removeImageBtn.addEventListener("click", clearPreview);
     changeImageBtn.addEventListener("click", () => avatarInput.click());
 
@@ -51,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
         document.querySelectorAll('.invalid-field').forEach(el => el.classList.remove('invalid-field'));
 
+        // Valida campos de texto
         ['name', 'email', 'github'].forEach(id => {
             const input = document.getElementById(id);
             const errorEl = document.getElementById(id + 'Error');
@@ -62,9 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorEl.textContent = 'Invalid email.';
                 input.classList.add('invalid-field');
                 isValid = false;
+            } else if (id === 'github' && !input.value.trim().startsWith('@')) { // <------
+                errorEl.textContent = 'GitHub username must start with "@".';
+                input.classList.add('invalid-field');
+                isValid = false;
             }
         });
 
+        // Valida Avatar
         if (!avatarDataUrl) {
             document.getElementById("avatarError").textContent = "Required field.";
             avatarInput.parentElement.classList.add("invalid-field");
@@ -72,15 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (isValid) {
-            // <-- MUDANÇA AQUI
-            let githubUsername = document.getElementById('github').value.trim();
-            if (!githubUsername.startsWith('@')) {
-                githubUsername = '@' + githubUsername;
-            }
-
             sessionStorage.setItem('ticketName', document.getElementById('name').value);
             sessionStorage.setItem('ticketEmail', document.getElementById('email').value);
-            sessionStorage.setItem('ticketGithub', githubUsername); // Salva a versão corrigida
+            sessionStorage.setItem('ticketGithub', document.getElementById('github').value);
             sessionStorage.setItem('ticketAvatar', avatarDataUrl);
             window.location.href = '/ticket_page/index.html';
         }

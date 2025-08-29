@@ -1,4 +1,4 @@
-// Arquivo: register-validate-firstname.js
+// Arquivo: register-github-smart-at.js
 document.addEventListener('DOMContentLoaded', () => {
     // ... (todo o código de setup e funções showPreview/clearPreview é o mesmo) ...
     const form = document.getElementById("ticketForm");
@@ -58,10 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorEl.textContent = 'Required field.';
                 input.classList.add('invalid-field');
                 isValid = false;
-            } else if (id === 'name' && input.value.trim().includes(' ')) { // <-----
-                errorEl.textContent = 'Please enter only your first name.';
-                input.classList.add('invalid-field');
-                isValid = false;
             } else if (id === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
                 errorEl.textContent = 'Invalid email.';
                 input.classList.add('invalid-field');
@@ -76,9 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (isValid) {
+            // <------
+            let githubUsername = document.getElementById('github').value.trim();
+            if (!githubUsername.startsWith('@')) {
+                githubUsername = '@' + githubUsername;
+            }
+
             sessionStorage.setItem('ticketName', document.getElementById('name').value);
             sessionStorage.setItem('ticketEmail', document.getElementById('email').value);
-            sessionStorage.setItem('ticketGithub', document.getElementById('github').value);
+            sessionStorage.setItem('ticketGithub', githubUsername); // Salva a versão corrigida
             sessionStorage.setItem('ticketAvatar', avatarDataUrl);
             window.location.href = '/ticket_page/index.html';
         }

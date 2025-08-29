@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const file = avatarInput.files[0];
             const maxSize = 500 * 1024;
             if (file.size > maxSize) {
-                // <-- MUDANÇA AQUI
+                // <-----
                 Toastify({ text: "Invalid size of file (max: 500KB).", backgroundColor: "linear-gradient(to right, #ff5e62, #e52e71)" }).showToast();
                 clearPreview();
                 return;
@@ -51,11 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
         ['name', 'email', 'github'].forEach(id => {
             const input = document.getElementById(id);
             if (!input.value.trim()) {
-                // <-- MUDANÇA AQUI
+                // <-----
                 Toastify({ text: `Field "${id}" is required.`, backgroundColor: "linear-gradient(to right, #ff5e62, #e52e71)" }).showToast();
                 isValid = false;
             } else if (id === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
-                // <-- MUDANÇA AQUI
+                // <-----
                 Toastify({ text: "Invalid email.", backgroundColor: "linear-gradient(to right, #ff5e62, #e52e71)" }).showToast();
                 isValid = false;
             }

@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorEl.textContent = 'Required field.';
                 input.classList.add('invalid-field');
                 isValid = false;
-            } else if (id === 'name') { // <-- MUDANÇA AQUI
+            } else if (id === 'name') { // <-----
                 const nameParts = value.split(' ');
                 if (nameParts.length < 2 || nameParts[1] === '') {
                     errorEl.textContent = 'Please enter your full name.';
