@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (isValid) {
-            // <------
+            // <------ Os dois casos juntos
             let githubUsername = document.getElementById('github').value.trim();
             if (!githubUsername.startsWith('@')) {
                 githubUsername = '@' + githubUsername;
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             sessionStorage.setItem('ticketName', document.getElementById('name').value);
             sessionStorage.setItem('ticketEmail', document.getElementById('email').value);
-            sessionStorage.setItem('ticketGithub', githubUsername); // Salva a versão corrigida
+            sessionStorage.setItem('ticketGithub', githubUsername);
             sessionStorage.setItem('ticketAvatar', avatarDataUrl);
             window.location.href = '/ticket_page/index.html';
         }

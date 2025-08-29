@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorEl.textContent = 'Invalid email.';
                 input.classList.add('invalid-field');
                 isValid = false;
-            } else if (id === 'github' && input.value.trim().startsWith('@')) { // <-----
+            } else if (id === 'github' && input.value.trim().startsWith('@')) { // <----- Validar que NÃO escreveu o "@" e adicioná-lo automaticamente
                 errorEl.textContent = 'Please enter username without the "@".';
                 input.classList.add('invalid-field');
                 isValid = false;

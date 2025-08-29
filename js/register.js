@@ -70,38 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        //Para validar que a pessoa escreveu apenas o primeiro nome (sem usar regex)
-        /*const nameInput = document.getElementById('name');
-        const nameError = document.getElementById('nameError');
-        const nameValue = nameInput.value.trim(); // .trim() remove espaços no início e fim     
-
-        if (!nameValue) { // Primeiro, checa se está vazio
-            nameError.textContent = 'Este campo é obrigatório.';
-            nameInput.classList.add('invalid-field');
-            isValid = false;
-        } else if (nameValue.includes(' ')) { // Checa se existe um espaço no meio do texto
-            nameError.textContent = 'Por favor, insira apenas o primeiro nome.';
-            nameInput.classList.add('invalid-field');
-            isValid = false;
-        }*/
-
-        //Para validar que escreveu nome e sobrenome (sem usar regex)
-        /*
-        const nameInput = document.getElementById('name');
-        const nameError = document.getElementById('nameError');
-        const nameValue = nameInput.value.trim();
-        const nameParts = nameValue.split(' '); // Divide o nome em um array, ex: "Filipe Arraes" -> ["Filipe", "Arraes     "]
-
-        if (!nameValue) {
-            nameError.textContent = 'Este campo é obrigatório.';
-            nameInput.classList.add('invalid-field');
-            isValid = false;
-        } else if (nameParts.length < 2 || nameParts[1] === "") { // Checa se tem menos de 2 partes ou se a segunda parte está vazia
-            nameError.textContent = 'Por favor, insira nome e sobrenome.';
-            nameInput.classList.add('invalid-field');
-            isValid = false;
-        }*/
-
         // Valida Avatar
         if (!avatarDataUrl) {
             document.getElementById("avatarError").textContent = "Required field.";

@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorEl.textContent = 'Required field.';
                 input.classList.add('invalid-field');
                 isValid = false;
-            } else if (id === 'name' && input.value.trim().includes(' ')) { // <-----
+            } else if (id === 'name' && input.value.trim().includes(' ')) { // <----- Validar que a pessoa escreveu apenas o primeiro nome
                 errorEl.textContent = 'Please enter only your first name.';
                 input.classList.add('invalid-field');
                 isValid = false;
