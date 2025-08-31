@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!name || !email || !github || !avatarDataUrl) {
         alert("Dados do ingresso não encontrados. Por favor, preencha o formulário.");
-        window.location.href = '/register_page/index.html';
+        window.location.href = 'index.html';
         return;
     }
 

@@ -1,7 +1,6 @@
-// Arquivo: register-error-toastify.js
-// REQUER QUE VOCÊ ADICIONE OS LINKS DO TOASTIFY.JS NO SEU ARQUIVO HTML.
+
 document.addEventListener('DOMContentLoaded', () => {
-    // ... (todo o código de setup e funções showPreview/clearPreview é o mesmo) ...
+
     const form = document.getElementById("ticketForm");
     const avatarInput = document.getElementById("avatar");
     const uploadPrompt = document.querySelector(".upload-prompt");

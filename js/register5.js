@@ -1,4 +1,4 @@
-// Arquivo: register-github-require-at.js
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById("ticketForm");
     const avatarInput = document.getElementById("avatar");
